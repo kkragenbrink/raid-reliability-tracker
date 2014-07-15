@@ -1,6 +1,0 @@
-#!/bin/env node
-"use strict";
-process.title = 'node rrt';
-
-var RRT = require('./src/Main');
-new RRT;
