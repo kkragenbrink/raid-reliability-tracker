@@ -1,0 +1,28 @@
+{
+  "name": "raid-reliability-tracker",
+  "version": "0.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.4.5",
+    "sqlite3": "^2.2.3",
+    "q": "^1.0.1",
+    "js-yaml": "^3.0.2",
+    "log4js": "^0.6.14",
+    "body-parser": "^1.4.3",
+    "cookie-parser": "^1.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kkragenbrink/raid-reliability-tracker.git"
+  },
+  "author": "Kevin Kragenbrink <kevin@writh.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kkragenbrink/raid-reliability-tracker/issues"
+  },
+  "homepage": "https://github.com/kkragenbrink/raid-reliability-tracker"
+}

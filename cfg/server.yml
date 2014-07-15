@@ -1,0 +1,16 @@
+bind:
+  - port : 7474
+    address : 0.0.0.0
+
+log:
+  appenders:
+    - type: console
+  levels:
+    default: INFO
+
+workers:
+  maxCallsPerWorker: 10
+  maxConcurrentWorkers: 2
+  maxConcurrentCallsPerWorker: 2
+  maxConcurrentCalls: 100
+  maxCallTime: 1000
