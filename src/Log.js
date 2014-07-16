@@ -1,4 +1,5 @@
 "use strict";
+
 require('js-yaml');
 
 var config = require('../cfg/server.yml').log;

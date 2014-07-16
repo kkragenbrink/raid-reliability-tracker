@@ -1,16 +1,19 @@
 {
   "name": "raid-reliability-tracker",
-  "version": "0.0.0",
-  "main": "index.js",
+  "version": "0.1.0",
   "dependencies": {
-    "js-yaml": "^3.0.2",
+    "js-yaml": "^3.1.0",
+    "koa": "^0.8.1",
     "log4js": "^0.6.14",
     "mongoose": "^3.8.13"
   },
   "devDependencies": {
-    "mocha": "^1.20.1"
+    "mocha": "^1.20.1",
+    "mock-fs": "^2.3.1",
+    "proxyquire": "^1.0.1"
   },
   "scripts": {
+    "start": "node --harmony server.js",
     "test": "mocha --harmony --sort --check-leaks --no-exit --ui tdd --reporter spec $(find test -name *.tests.js)"
   },
   "repository": {
