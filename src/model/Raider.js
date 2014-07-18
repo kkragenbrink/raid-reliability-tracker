@@ -14,8 +14,9 @@ var RaiderSchema = mongoose.Schema({
             reason: {type: String}
         }]
     }]
-})
-.index({name: 1, server: 1}, {unique: true});
+});
+RaiderSchema.set('autoIndex', false);
+RaiderSchema.index({name: 1, server: 1}, {unique: true});
 var RaiderModel = mongoose.model('Raider', RaiderSchema);
 
 module.exports = RaiderModel;

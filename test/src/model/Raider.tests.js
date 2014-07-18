@@ -1,7 +1,7 @@
 "use strict";
 
+require('../../fixtures/mongoose');
 var assert = require('assert');
-var mongoose = require('mongoose');
 
 suite('src.model.Raider', function () {
     var RaiderModel = require('../../../src/model/Raider');
@@ -11,7 +11,20 @@ suite('src.model.Raider', function () {
         assert.ok(rm._id);
     });
 
-    test('user/server combinations should be unique', function () {
-        assert.ok(false, 'This test is not yet defined.');
-    })
+    test('user/server combinations should be unique', function (done) {
+        var model = {name : 'test', server : 'dev'};
+
+        RaiderModel
+            .create(model)
+            .then(function () {
+                RaiderModel
+                    .create(model)
+                    .then(function () {
+                        throw Error('Creation was allowed when it should not have been.');
+                    }, function (err) {
+                        console.log(err);
+                    })
+                    .end();
+            })
+    });
 });
