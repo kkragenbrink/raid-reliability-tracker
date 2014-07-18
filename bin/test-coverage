@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+var fs = require('q-io/fs');
+var exec = require('child_process').exec;
+var q = require('q');
+
+fs
+    .makeDirectory('coverage')
+    .then(function () {
+        return fs.symbolicCopy('tst', 'coverage/tst', 'directory')
+    })
+    .then(function () {
+        var deferred = q.defer();
+        exec('jscoverage src ./coverage/src', deferred.resolve);
+        return deferred.promise;
+    })
+    .then(function () {
+        var deferred = q.defer();
+        exec('npm run-script coverage', deferred.resolve);
+        return deferred.promise;
+    })
+    .then(function () {
+        fs.removeTree('coverage');
+    })
+    .done();
