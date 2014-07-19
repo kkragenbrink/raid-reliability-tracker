@@ -1,11 +1,13 @@
 "use strict";
 
-var fs = require('fs');
-var yaml = require('js-yaml');
-var config = yaml.load(fs.readFileSync('../cfg/server.yml'));
 var Main = require('./Main');
 
-process.title = 'node ' + config.app.name;
+var fs = require('q-io/fs');
+var yaml = require('js-yaml');
 
-
-new Main(config);
+fs.read('../cfg/server.yml')
+.then(function (cfg) {
+    var config = yaml.load(cfg);
+    process.title = 'node ' + config.app.name;
+        new Main(config);
+});

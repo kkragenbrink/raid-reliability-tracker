@@ -2,13 +2,13 @@
 
 var assert = require('assert');
 var proxyquire = require('proxyquire');
-var mockfs = require('mock-fs');
+var MockFs = require("q-io/fs-mock");
 
 suite('server', function () {
     var server;
 
     server = proxyquire('../src/server', {
-        'fs' : mockfs.fs({'../cfg/server.yml' : 'app:\n  name: test'}),
+        'q-io/fs' : MockFs({'../cfg/server.yml' : 'app:\n  name: test'}),
         './Main' : function () {}
     });
 
