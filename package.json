@@ -18,7 +18,8 @@
   "scripts": {
     "start": "node --harmony server.js",
     "test": "mocha --harmony --sort --check-leaks --no-exit --ui tdd --reporter spec $(find tst -name *.tests.js)",
-    "coverage": "mocha --harmony --sort --check-leaks --no-exit --ui tdd --reporter htmlcov $(find tst -name *.tests.js)"
+    "posttest": "bin/test-coverage",
+    "coverage": "mocha --harmony --sort --check-leaks --no-exit --ui tdd --reporter html-cov $(find coverage/tst/ -name *.tests.js)"
   },
   "repository": {
     "type": "git",

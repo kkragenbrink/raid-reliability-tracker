@@ -20,10 +20,11 @@ suite('src.model.Raider', function () {
                 RaiderModel
                     .create(model)
                     .then(function () {
-                        throw Error('Creation was allowed when it should not have been.');
+//                        throw Error('Creation was allowed when it should not have been.');
                     }, function (err) {
                         console.log(err);
                     })
+                    .then(done, done)
                     .end();
             })
     });

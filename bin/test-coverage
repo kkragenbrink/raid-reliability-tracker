@@ -7,7 +7,7 @@ var q = require('q');
 fs
     .makeDirectory('coverage')
     .then(function () {
-        return fs.symbolicCopy('tst', 'coverage/tst', 'directory')
+        return fs.copyTree('tst', 'coverage/tst', 'directory')
     })
     .then(function () {
         var deferred = q.defer();
@@ -16,7 +16,7 @@ fs
     })
     .then(function () {
         var deferred = q.defer();
-        exec('npm run-script coverage', deferred.resolve);
+        exec('npm run-script coverage > coverage.html', deferred.resolve);
         return deferred.promise;
     })
     .then(function () {
