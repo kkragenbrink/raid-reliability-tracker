@@ -20,6 +20,7 @@ suite('src.model.Raider', function () {
                 RaiderModel
                     .create(model)
                     .then(function () {
+                        console.log('This test cannot be completed due to missing upstream dependencies:');
 //                        throw Error('Creation was allowed when it should not have been.');
                     }, function (err) {
                         console.log(err);
